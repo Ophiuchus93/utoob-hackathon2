@@ -15,16 +15,16 @@ class ShowVideo extends React.Component {
 
   render() {
 
-    const { match: { params: { video_id } } } = this.props
+    const { match: { params: { vid_link } } } = this.props
     const { video } = this.state
     return (
 
       <div>
         <Iframe 
-          url={video.vid_link}
+          src={video.vid_link}
           width="450px"
           height="450px"
-          id="myId"
+          id="video.id"
           className="myClassname"
           display="initial"
           position="relative" />
