@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "i": "^0.3.6",
+    "react-iframe": "^1.8.0"
+  }
+}
