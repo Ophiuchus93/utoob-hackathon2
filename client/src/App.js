@@ -8,13 +8,13 @@ import FetchUser from './components/FetchUser';
 import VideoForm from './components/VideoForm';
 import ProtectedRoute from './components/ProtectedRoute';
 import { Switch, Route, } from 'react-router-dom';
-import { Container, } from "semantic-ui-react";
+// import { Container, } from "semantic-ui-react";
 
 const App = () => (
   <>
     <Navbar />
     <FetchUser>
-      <Container>
+      {/* <Container> */}
         <Switch>
           <ProtectedRoute exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
@@ -22,7 +22,7 @@ const App = () => (
           <Route exact path="/video_form" component={VideoForm} />
           <Route component={NoMatch} />
         </Switch>
-      </Container>
+      {/* </Container> */}
     </FetchUser>
   </>
 )
