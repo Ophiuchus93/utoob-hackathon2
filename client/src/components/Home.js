@@ -1,8 +1,40 @@
 import React from 'react';
-import { Header, } from 'semantic-ui-react';
+import axios from 'axios'
+import Video from './Video'
 
-const Home = () => (
-  <Header as="h3" textAlign="center">Devise Auth App</Header>
-)
+class Home extends React.Component {
+  state = { videos: [] }
 
-export default Home;
+  componentDidMount() {
+    axios.get('/api/videos')
+    .then(res => this.setState({videos: res.data, }))
+  }
+
+  renderVideos = () => {
+    const { videos } = this.state;
+
+    if (videos.length <= 0)
+    return <h2> No Videos to Display </h2>
+    return videos.map(video => 
+      <Video
+      key={video.id}
+      />)
+
+  }
+
+  render() 
+  {
+    return (
+      
+      <div>
+       {this.renderVideos()}
+      </div>
+    )
+  }
+}
+
+
+
+export default Home
+
+
