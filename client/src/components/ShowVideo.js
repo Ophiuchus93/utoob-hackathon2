@@ -22,7 +22,7 @@ class ShowVideo extends React.Component {
           url={video.vid_link}
           width="750px"
           height="400px"
-          id="myId"
+          id={video.id}
           className="myClassname"
           display="initial"
           position="relative" />

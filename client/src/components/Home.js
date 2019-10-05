@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 import Video from './Video'
+import styled from 'styled-components';
 
 class Home extends React.Component {
   state = { videos: [] }
@@ -34,14 +35,28 @@ class Home extends React.Component {
   render() 
   {
     return (
-      <div style={{display: "flex", flexWrap: "wrap",}}>
-       {this.renderVideos()}
-      </div>
+      <>
+        <StyledText> All  Videos </StyledText>
+          <VideoContainer>
+          
+            <div style={{display: "flex", flexWrap: "wrap",}}>
+            {this.renderVideos()}
+            </div>
+          </VideoContainer>
+      </>
     )
   }
 }
 
+const VideoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+`;
 
+const StyledText = styled.h1`
+  margin-left: 100px;
+`;
 
 export default Home
 
