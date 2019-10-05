@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   has_many :videos
-  has_many :comments, through :videos
+  has_many :comments, through: :videos
 
 end
