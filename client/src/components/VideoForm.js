@@ -71,7 +71,7 @@ class VideoForm extends React.Component{
             value={trailer}
             onChange={this.handleChange}
           />
-          <Form.Button>Sumbit</Form.Button>
+          <Form.Button>Submit</Form.Button>
         </Form>
       </>
     )
