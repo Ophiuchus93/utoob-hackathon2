@@ -41,7 +41,7 @@ class Navbar extends React.Component {
   }
   
   render() {
-    const { auth: { user, handleLogout, }, location, } = this.props;
+    const { auth: { handleLogout, }  } = this.props;
 
     return (
       <div>
@@ -56,7 +56,7 @@ class Navbar extends React.Component {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <StyleLink href="/"> Home </StyleLink>
+              <Dropdown.Item href="/"> Home </Dropdown.Item>
               <Dropdown.Item href="/videos"> Videos </Dropdown.Item>
               <Dropdown.Item onClick={ () => handleLogout(this.props.history) }> 
                 Logout 
