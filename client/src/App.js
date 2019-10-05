@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import FetchUser from './components/FetchUser';
 import VideoForm from './components/VideoForm';
+import EditVideo from './components/EditVideo';
 import ProtectedRoute from './components/ProtectedRoute';
 import { Switch, Route, } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,6 +23,7 @@ const App = () => (
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/video_form" component={VideoForm} />
+          <Route exact path="/edit_video/:id" component={EditVideo} />
           <Route component={NoMatch} />
         </Switch>
       {/* </Container> */}
