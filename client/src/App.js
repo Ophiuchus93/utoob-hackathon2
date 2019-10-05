@@ -23,11 +23,8 @@ const App = () => (
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/video_form" component={VideoForm} />
-<<<<<<< HEAD
           <Route exact path="/edit_video/:id" component={EditVideo} />
-=======
           <Route exact path="/videos/:id" component={ShowVideo} />
->>>>>>> fed0d3d905071f5b57c3c61b8ffa5f46e9a9637c
           <Route component={NoMatch} />
         </Switch>
       {/* </Container> */}

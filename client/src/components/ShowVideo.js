@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
-import Iframe from 'react-iframe'
+import Iframe from 'react-iframe';
+import { Button, } from "react-bootstrap";
+import { Link, } from 'react-router-dom';
 
 class ShowVideo extends React.Component {
   state = { video: {}, }
@@ -12,22 +14,23 @@ class ShowVideo extends React.Component {
       })
   }
 
-
   render() {
-
-    const { match: { params: { video_id } } } = this.props
     const { video } = this.state
     return (
-
       <div>
         <Iframe 
           url={video.vid_link}
-          width="450px"
-          height="450px"
+          width="750px"
+          height="400px"
           id="myId"
           className="myClassname"
           display="initial"
           position="relative" />
+          <h2>{video.title}</h2>
+          <p>{video.duration}</p>
+          <p>{video.genre}</p>
+          <p>{video.description}</p>
+        <Button as={Link} to={`/edit_video/${video.id}`}>Edit Video</Button>
       </div>
     )
   }
