@@ -1,13 +1,43 @@
 class Api::VideosController < ApplicationController
-  def index,
+  before_action :set_video, only: [ :show, :update, :destroy ]
+
+  def index
+   render json: Video.all
   end
 
-  def show,
+  def show
+    render json: @video
   end
 
-  def new,
+  def create
+    video = Video.new(video_params)
+
+    if video.save
+      render json: video
+    else
+      render json: video.errors, status: 422
+    end
   end
 
-  def delete
+  def update
+    if @video.update(video_params)
+      render json: @video
+    else
+      render json: @video.errors, status: 422
+    end
   end
+
+  def destroy
+    @video.destroy
+  end
+
+  private
+
+    def set_video
+        @video = Video.find(params[:id])
+    end
+
+    def video_params
+      params.require(:video).permit(:title, :duration, :genre, :description, :trailer)
+    end
 end
