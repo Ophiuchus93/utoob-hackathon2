@@ -18,6 +18,7 @@ const App = () => (
       {/* <Container> */}
         <Switch>
           <ProtectedRoute exact path="/" component={Home} />
+          <ProtectedRoute exact path="/videos" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/video_form" component={VideoForm} />

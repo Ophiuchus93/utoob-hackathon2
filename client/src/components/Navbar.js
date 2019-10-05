@@ -4,48 +4,45 @@ import UtoobIcon from '../images/UtoobIcon.png';
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { Menu, } from 'semantic-ui-react';
 import { Link, withRouter, } from 'react-router-dom';
-import {DropdownButton, Dropdown} from 'react-bootstrap'
+import {Dropdown} from 'react-bootstrap'
 import styled from 'styled-components';
 
 
 
 class Navbar extends React.Component {
   
-  // rightNavItems = () => {
-  //   const { auth: { user, handleLogout, }, location, } = this.props;
+  rightNavItems = () => {
+    const { auth: { user, handleLogout, }, location, } = this.props;
     
-  //   if (user) {
-  //     return (
-  //       <Menu.Menu position='right'>
-  //         <Menu.Item
-  //           name='logout'
-  //           onClick={ () => handleLogout(this.props.history) }
-  //         />
-  //       </Menu.Menu>
-  //     )
-  //   } else {
-  //     return (
-  //       <Menu.Menu position='right'>
-  //         <Link to='/login'>
-  //           <Menu.Item
-  //             id='login'
-  //             name='login'
-  //             active={location.pathname === '/login'}
-  //           />
-  //         </Link>
-  //         <Link to='/register'>
-  //           <Menu.Item
-  //             id='register'
-  //             name='register'
-  //             active={location.pathname === '/register'}
-  //           />
-  //         </Link>
-  //       </Menu.Menu>
-  //     )
-  //   }
-  // }
+    if (user) {
+      return (
+       null
+      )
+    } else {
+      return (
+        <Menu.Menu position='right'>
+          <Link to='/login'>
+            <Menu.Item
+              id='login'
+              name='login'
+              active={location.pathname === '/login'}
+            />
+          </Link>
+          <Link to='/register'>
+            <Menu.Item
+              id='register'
+              name='register'
+              active={location.pathname === '/register'}
+            />
+          </Link>
+        </Menu.Menu>
+      )
+    }
+  }
   
   render() {
+    const { auth: { handleLogout, }  } = this.props;
+
     return (
       <div>
         <ImgContainer>
@@ -60,8 +57,10 @@ class Navbar extends React.Component {
 
             <Dropdown.Menu>
               <Dropdown.Item href="/"> Home </Dropdown.Item>
-              <Dropdown.Item href="/Videos"> Videos </Dropdown.Item>
-              {/* <Dropdown.Item onClick= {this.rightNavItems()} > Logout </Dropdown.Item> */}
+              <Dropdown.Item href="/videos"> Videos </Dropdown.Item>
+              <Dropdown.Item onClick={ () => handleLogout(this.props.history) }> 
+                Logout 
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           </ToggleContainer>
@@ -71,16 +70,11 @@ class Navbar extends React.Component {
             <StyledButton > Upload Video </StyledButton>
           </Link>
           </ButtonContainer>
-        {/* <Menu pointing secondary>
-          <Link to='/'>
-          <Menu.Item
-          name='home'
-          id='home'
-          active={this.props.location.pathname === '/'}
-          />
-          </Link>
-          { this.rightNavItems() }
-        </Menu> */}
+
+          <LogContainer>
+            { this.rightNavItems() }
+          </LogContainer>
+       
       </div>
     )
   }
@@ -111,8 +105,19 @@ const ButtonContainer = styled.div`
   margin-top: -80px;
   `;
 
+const LogContainer = styled.div`
+  height: 100px;
+  width: 200px;
+  margin-left: 1000px;
+  margin-top: -100px;
+`;
+
+const StyleLink = styled.link`
+ 
+  color: black;
+`;
 const StyledButton = styled.button`
-  background: red;
+  background: #c82433;
   width: 130px;
   border: none;
   color: white;
@@ -124,7 +129,7 @@ const StyledButton = styled.button`
   border-radius: 10px;
   
   &:hover {
-    background: rgba(30, 85, 90, 0.87);
+    background: #631119;
     transition: background 0.2s ease;
   }
   `;
