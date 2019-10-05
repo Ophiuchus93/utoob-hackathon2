@@ -67,7 +67,9 @@ class Navbar extends React.Component {
           </ToggleContainer>
 
           <ButtonContainer>
-            <StyledButton> Upload Video </StyledButton>
+          <Link to={"/video_form/"}>
+            <StyledButton > Upload Video </StyledButton>
+          </Link>
           </ButtonContainer>
         {/* <Menu pointing secondary>
           <Link to='/'>

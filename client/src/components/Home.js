@@ -18,9 +18,18 @@ class Home extends React.Component {
     return videos.map(video => 
       <Video
       key={video.id}
+      {...video}
+      deleteVideo={this.deleteVideo}
       />)
-
   }
+
+    deleteVideo = (id) => {
+      axios.delete(`/api/videos/${id}`)
+      .then( res => {
+        const { videos } = this.state;
+        this.setState({ videos: videos.filter( v => v.id !== id),})
+      })
+    }
 
   render() 
   {

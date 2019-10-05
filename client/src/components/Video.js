@@ -1,18 +1,16 @@
 import React from 'react'
 import Iframe from 'react-iframe'
-
+import { Button, } from "react-bootstrap"
+  
 const Video = (props) => {
   
     return (
       <div>
-        <Iframe url="https://www.youtube.com/watch?v=lnXeybyTycg"
-        width="450px"
-        height="450px"
-        // className="styling"
-        display="initial"
-        position="relative"
-        id='1'
-        />
+        <img src={props.trailer}/>
+        <Button
+          onClick={() => props.deleteVideo(props.id)}
+        >Delete</Button>
+
       </div>
     )
   
