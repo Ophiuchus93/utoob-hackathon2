@@ -34,8 +34,7 @@ class Home extends React.Component {
   render() 
   {
     return (
-      
-      <div>
+      <div style={{display: "flex", flexWrap: "wrap",}}>
        {this.renderVideos()}
       </div>
     )
