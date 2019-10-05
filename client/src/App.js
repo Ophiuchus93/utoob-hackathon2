@@ -8,7 +8,7 @@ import FetchUser from './components/FetchUser';
 import VideoForm from './components/VideoForm';
 import ProtectedRoute from './components/ProtectedRoute';
 import { Switch, Route, } from 'react-router-dom';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import { Container, } from "semantic-ui-react";
 
 const App = () => (

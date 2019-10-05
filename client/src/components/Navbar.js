@@ -4,7 +4,7 @@ import UtoobIcon from '../images/UtoobIcon.png';
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { Menu, } from 'semantic-ui-react';
 import { Link, withRouter, } from 'react-router-dom';
-import {Dropdown} from 'react-bootstrap'
+import {DropdownButton, Dropdown} from 'react-bootstrap'
 import styled from 'styled-components';
 
 
@@ -53,17 +53,17 @@ class Navbar extends React.Component {
         </ImgContainer>
 
           <ToggleContainer>
-            <Dropdown>
-                <Dropdown.Toggle marginLeft="40px" variant="success" id="dropdown-basic">
-                  <img marginLeft="40px" width="100%" src={UtoobIcon} alt="icon" />
-                </Dropdown.Toggle>
+          <Dropdown>
+            <Dropdown.Toggle marginLeft="40px" variant="danger" id="dropdown-basic">
+              <img marginLeft="40px" width="100%" src={UtoobIcon} alt="icon" />
+            </Dropdown.Toggle>
 
-              <Dropdown.Menu>
-                <Dropdown.Item href="/"> Home </Dropdown.Item>
-                <Dropdown.Item href="/Videos"> Videos </Dropdown.Item>
-                {/* <Dropdown.Item onClick= {this.rightNavItems()} > Logout </Dropdown.Item> */}
-              </Dropdown.Menu>
-            </Dropdown>
+            <Dropdown.Menu>
+              <Dropdown.Item href="/"> Home </Dropdown.Item>
+              <Dropdown.Item href="/Videos"> Videos </Dropdown.Item>
+              {/* <Dropdown.Item onClick= {this.rightNavItems()} > Logout </Dropdown.Item> */}
+            </Dropdown.Menu>
+          </Dropdown>
           </ToggleContainer>
 
           <ButtonContainer>
@@ -90,8 +90,8 @@ const ToggleContainer = styled.div`
   margin-left: 1100px;
   margin-right: 500px;
   margin-top: -40px;
-
-`;
+  
+  `;
 
 const ImgContainer = styled.div`
   display: flex;
@@ -100,14 +100,14 @@ const ImgContainer = styled.div`
   margin-left: 100px;
   width: 120px;
   background-color: white;
-`;
+  `;
 
 const ButtonContainer = styled.div`
   height: 100px;
   width: 100px;
   margin-left: 500px;
   margin-top: -80px;
-`;
+  `;
 
 const StyledButton = styled.button`
   background: red;
@@ -120,12 +120,12 @@ const StyledButton = styled.button`
   font-size: 15px;
   margin-left: 670px;
   border-radius: 10px;
-
+  
   &:hover {
     background: rgba(30, 85, 90, 0.87);
     transition: background 0.2s ease;
   }
-`;
+  `;
 
 export class ConnectedNavbar extends React.Component {
   render() {
@@ -140,3 +140,15 @@ export class ConnectedNavbar extends React.Component {
 }
 
 export default withRouter(ConnectedNavbar);
+
+  // <Dropdown>
+  //     <Dropdown.Toggle marginLeft="40px" variant="success" id="dropdown-basic">
+  //       <img marginLeft="40px" width="100%" src={UtoobIcon} alt="icon" />
+  //     </Dropdown.Toggle>
+
+  //   <Dropdown.Menu>
+  //     <Dropdown.Item href="/"> Home </Dropdown.Item>
+  //     <Dropdown.Item href="/Videos"> Videos </Dropdown.Item>
+  //     {/* <Dropdown.Item onClick= {this.rightNavItems()} > Logout </Dropdown.Item> */}
+  //   </Dropdown.Menu>
+  // </Dropdown>
