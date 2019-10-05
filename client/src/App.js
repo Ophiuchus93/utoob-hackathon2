@@ -9,6 +9,7 @@ import VideoForm from './components/VideoForm';
 import ProtectedRoute from './components/ProtectedRoute';
 import { Switch, Route, } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ShowVideo from './components/ShowVideo'
 // import { Container, } from "semantic-ui-react";
 
 const App = () => (
@@ -18,10 +19,10 @@ const App = () => (
       {/* <Container> */}
         <Switch>
           <ProtectedRoute exact path="/" component={Home} />
-          <ProtectedRoute exact path="/videos" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/video_form" component={VideoForm} />
+          <Route exact path="/videos/:id" component={ShowVideo} />
           <Route component={NoMatch} />
         </Switch>
       {/* </Container> */}
